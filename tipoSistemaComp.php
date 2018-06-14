@@ -1,3 +1,20 @@
+<?php
+	
+	 $tipoDeSistemaComputacional = $_POST["tipoDeSistemaComputacional"];
+	
+	 if(tipoDeSistemaComputacional == 0)
+	 {	
+		echo "Você escolheu o sistema batch";
+	 }
+	
+	if(tipoDeSistemaComputacional == 1)
+	 {	
+		echo "Você escolheu o sistema iterativo";
+	 }
+	
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +47,6 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  
 
 
   <div class="section no-pad-bot" id="index-banner">
@@ -38,19 +54,26 @@
       <br><br>
       <h1 class="header center orange-text">Simulação</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Escolha o tipo de Sistema Computacional:</h5>
+        <h5 class="header col s12 light">Você escolheu um Sistema Batch!</h5>
 	<br><br>
 	<div class="container">
-	  <br><br>
-	    <a href="listaBatch.html">
-	      <button class="btn light-blue lighten-1" type="submit" name="action">Sistemas Batch
+	  <br>
+	    <a href="#">
+	      <button class="btn light-blue lighten-1" type="submit" name="action">First-Come First-Server
               <i class="material-icons right">send</i>
             </button></a>
         </div>
 	<div class="container">
-	  <br><br>
-	    <a href="listaIterativo.html">
-	      <button class="btn light-blue lighten-1" type="submit" name="action">Sistemas Iterativo
+	  <br>
+	    <a href="#">
+	      <button class="btn light-blue lighten-1" type="submit" name="action" >Shortest Job First
+             <i class="material-icons right">send</i>
+           </button></a>
+        </div>
+        <div class="container">
+	  <br>
+	    <a href="#">
+	      <button class="btn light-blue lighten-1" type="submit" name="action" >Shortest Remaning Time Next
              <i class="material-icons right">send</i>
            </button></a>
         </div>

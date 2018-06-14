@@ -30,7 +30,6 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  
 
 
   <div class="section no-pad-bot" id="index-banner">
@@ -40,23 +39,33 @@
       <div class="row center">
         <h5 class="header col s12 light">Escolha o tipo de Sistema Computacional:</h5>
 	<br><br>
-	<div class="container">
-	  <br><br>
-	    <a href="listaBatch.html">
-	      <button class="btn light-blue lighten-1" type="submit" name="action">Sistemas Batch
-              <i class="material-icons right">send</i>
-            </button></a>
-        </div>
-	<div class="container">
-	  <br><br>
-	    <a href="listaIterativo.html">
-	      <button class="btn light-blue lighten-1" type="submit" name="action">Sistemas Iterativo
-             <i class="material-icons right">send</i>
-           </button></a>
-        </div>
-      </div>
-      <br><br>
-    </div>
+	
+	<!-- criei um form para pegar o tipo de sistema computacional que o usuário escolheu -->
+	<form id= "TipoSisComp" name="identificacao" name="modulo_mine" method="post" action="tipoSistemaComp.php" onSubmit="return valida (this);">
+		<p>
+		  <label>
+			<input name="tipoDeSistemaComputacional" value="0" type="radio" checked />
+			<span>Sistemas batch</span>
+		  </label>
+		</p>
+		
+		<p>
+		  <label>
+			<input name="tipoDeSistemaComputacional" value="1"  type="radio" />
+			<span>Sistemas iterativo</span>
+		  </label>
+		</p>
+		<p>
+		
+		<input button class="btn light-blue lighten-1" type="submit" name="salvar" value="PRÓXIMO">
+		<!--
+		<input button class="btn light-blue lighten-1" type="button" name="sair" value="CANCELAR" onClick="history.go (-1)"> 
+		-->
+		</p>
+  </form>
+  
+  <!-- fim do fomulário -->
+	
 
   </div>
   <div class="container">
@@ -66,7 +75,7 @@
   <footer class="page-footer orange">
     <div class="footer-copyright">
       <div class="container">
-      	<p>Feito por Ana Spengler, Leo Natan, João Biazotto</p>
+      	<p>Desenvolvido por Ana Spengler, Leo Natan, João Biazotto</p>
       </div>
     </div>
   </footer>
