@@ -46,7 +46,7 @@
 	 if($tipoSC == 0)
 	 {	
 		echo"
-				<form action=\"tipoSistemaComp.php\" name=\"form1\" method=\"POST\">
+				<form action=\"escalonamento.php\" name=\"form1\" method=\"POST\">
 					<p>
 					  <label>
 						<input type=\"radio\" name=\"algoritmo\" value=\"0\" checked>  
@@ -85,7 +85,7 @@
 	 if($tipoSC == 1)
 	 {	
 		echo"
-				<form action=\"tipoSistemaComp.php\" name=\"form1\" method=\"POST\">
+				<form action=\"escalonamento.php\" name=\"form1\" method=\"POST\">
 					<p>
 					  <label>
 						<input type=\"radio\" name=\"algoritmo\" value=\"3\" checked>  
