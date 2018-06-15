@@ -1,18 +1,6 @@
 <?php
+	 $tipoSC = $_POST["tipoSC"];
 	
-	 $tipoDeSistemaComputacional = $_POST["tipoDeSistemaComputacional"];
-	
-	 if(tipoDeSistemaComputacional == 0)
-	 {	
-		echo "Você escolheu o sistema batch";
-	 }
-	
-	if(tipoDeSistemaComputacional == 1)
-	 {	
-		echo "Você escolheu o sistema iterativo";
-	 }
-	
-
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +42,134 @@
       <br><br>
       <h1 class="header center orange-text">Simulação</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Você escolheu um Sistema Batch!</h5>
+        <h5 class="header col s12 light">
+		
+		<?php 
+		
+		if($tipoSC == 0)
+		 {	
+			echo "Você escolheu um Sistema Batch!";
+		 } 
+		if($tipoSC == 1)
+		 {	
+			echo "Você escolheu um Sistema Interativo!";
+		 }
+		
+		?>
+		</h5>
 	<br><br>
+	
+	
+	<?php
+	
+	 if($tipoSC == 0)
+	 {	
+		echo"
+				<form action=\"tipoSistemaComp.php\" name=\"form1\" method=\"POST\">
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"0\" checked>  
+						<span>First-Come First-Serve </span>
+					  </label>
+					</p>
+					
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"1\">  
+						<span>Shortest Job First </span>
+					  </label>
+					</p>
+					
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"2\" >  
+						<span>Shortest Remaning Time Next </span>
+					  </label>
+					</p>					
+
+
+					<!-- botao de enviar -->
+				
+					<p> 
+						<input button class=\"btn light-blue lighten-1\" type=\"button\" name=\"sair\" value=\"VOLTAR\" onClick=\"history.go (-1)\"> 
+						<input button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"button\" value=\"PRÓXIMO\"> 
+					</p>
+
+				</form>
+			";
+ 
+	 }
+	 
+	 
+	 if($tipoSC == 1)
+	 {	
+		echo"
+				<form action=\"tipoSistemaComp.php\" name=\"form1\" method=\"POST\">
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"3\" checked>  
+						<span>Round-Robin </span>
+					  </label>
+					</p>
+					
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"4\">  
+						<span>Prioridade </span>
+					  </label>
+					</p>
+					
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"5\">  
+						<span>Múltiplas Filas </span>
+					  </label>
+					</p>					
+
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"6\">  
+						<span>Shortest Process Next </span>
+					  </label>
+					</p>			
+
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"7\">  
+						<span>Garantido </span>
+					  </label>
+					</p>	
+
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"8\">  
+						<span>Loteria </span>
+					  </label>
+					</p>					
+
+					<p>
+					  <label>
+						<input type=\"radio\" name=\"algoritmo\" value=\"9\">  
+						<span>Fair-Share </span>
+					  </label>
+					</p>					
+					
+					<!-- botao de enviar -->
+				
+					<p> 
+						<input button class=\"btn light-blue lighten-1\" type=\"button\" name=\"sair\" value=\"VOLTAR\" onClick=\"history.go (-1)\"> 
+						<input button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"button\" value=\"PRÓXIMO\"> 
+					</p>
+
+				</form>
+			";
+ 
+	 }
+	
+	?>
+	
+
+	<!--
 	<div class="container">
 	  <br>
 	    <a href="#">
@@ -82,6 +196,8 @@
     </div>
 
   </div>
+  
+  -->
   <div class="container">
     <div class="section">
 
@@ -89,7 +205,7 @@
   <footer class="page-footer orange">
     <div class="footer-copyright">
       <div class="container">
-      	<p>Feito por Ana Spengler, Leo Natan, João Biazotto</p>
+      	<p>Desenvolvido por Ana Spengler, Leo Natan, João Biazotto</p>
       </div>
     </div>
   </footer>

@@ -1,3 +1,15 @@
+<?php
+	
+	//session_start();
+	
+	//$id_usuario = $_SESSION['idusuario'];
+
+	//echo "olá mundo";
+	
+	//$_SESSION['id_usuario'] = $id_usuario;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,37 +53,39 @@
 	<br><br>
 	
 	<!-- criei um form para pegar o tipo de sistema computacional que o usuário escolheu -->
-	<form id= "TipoSisComp" name="identificacao" name="modulo_mine" method="post" action="tipoSistemaComp.php" onSubmit="return valida (this);">
+	<form action="tipoSistemaComp.php" name="form1" method="POST">
 		<p>
 		  <label>
-			<input name="tipoSC" value="0" type="radio" checked />
-			<span>Sistemas batch</span>
+			<input type="radio" name="tipoSC" value="0" checked>  
+			<span>Sistemas batch </span>
 		  </label>
 		</p>
-		
+
 		<p>
 		  <label>
-			<input name="tipoSC" value="1"  type="radio" />
+			<input type="radio" name="tipoSC" value= "1">
 			<span>Sistemas iterativo</span>
 		  </label>
 		</p>
-		<p>
+
+		<!-- botao de enviar -->
 		
-		<input button class="btn light-blue lighten-1" type="submit" name="salvar" value="PRÓXIMO">
-		<!--
-		<input button class="btn light-blue lighten-1" type="button" name="sair" value="CANCELAR" onClick="history.go (-1)"> 
-		-->
+		<p> 
+		<input button class="btn light-blue lighten-1" type="submit" name="button" value="PRÓXIMO"> 
 		</p>
+		
+
   </form>
   
   <!-- fim do fomulário -->
 	
 
   </div>
+  
   <div class="container">
     <div class="section">
-
-
+            
+	
   <footer class="page-footer orange">
     <div class="footer-copyright">
       <div class="container">
