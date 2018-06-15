@@ -24,24 +24,7 @@
 </head>
 <body>
 <!-- comentário -->
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" class="brand-logo">GerPro</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Início</a></li>
-	<li><a href="tutorial.html">Tutorial</a></li>
-	<li><a href="simulacao.html">Simulação</a></li>
-	<li><a href="sobre.html">Sobre</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="index.html">Início</a></li>
-	<li><a href="tutorial.html">Tutorial</a></li>
-	<li><a href="simulacao.html">Simulação</a></li>
-	<li><a href="sobre.html">Sobre</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+  <? include 'cabecalho.php';?>
 
 
   <div class="section no-pad-bot" id="index-banner">
@@ -86,13 +69,7 @@
     <div class="section">
             
 	
-  <footer class="page-footer orange">
-    <div class="footer-copyright">
-      <div class="container">
-      	<p>Desenvolvido por Ana Spengler, Leo Natan, João Biazotto</p>
-      </div>
-    </div>
-  </footer>
+  <? include 'rodape.php';?>
 
 
   <!--  Scripts-->

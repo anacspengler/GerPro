@@ -12,26 +12,7 @@
 </head>
 <body>
 <!-- comentário -->
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" class="brand-logo">GerPro</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Início</a></li>
-	<li><a href="tutorial.html">Tutorial</a></li>
-	<li><a href="simulacao.html">Simulação</a></li>
-	<li><a href="sobre.html">Sobre</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="index.html">Início</a></li>
-	<li><a href="tutorial.html">Tutorial</a></li>
-	<li><a href="simulacao.html">Simulação</a></li>
-	<li><a href="sobre.html">Sobre</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-
+  <? include 'cabecalho.php';?>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -66,7 +47,7 @@
         </div>
 <div class="row">
     <div class="col s12 m6">
-      <a href="simulacao.html" class="light-blue lighten-1 btn">Ir para Simulação</a>
+      <a href="simulacao.php" class="light-blue lighten-1 btn">Ir para Simulação</a>
     </div>
     </div>    
 
@@ -74,13 +55,7 @@
 <br><br>
 </div>
 
-  <footer class="page-footer orange">
-    <div class="footer-copyright">
-      <div class="container">
-      	<p>Feito por Ana Spengler, Leo Natan, João Biazotto</p>
-      </div>
-    </div>
-  </footer>
+  <? include 'rodape.php';?>
 
 
   <!--  Scripts-->
