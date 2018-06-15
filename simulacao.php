@@ -24,7 +24,7 @@
 </head>
 <body>
 <!-- comentário -->
-  <? include 'cabecalho.php';?>
+  <?php include 'cabecalho.php';?>
 
 
   <div class="section no-pad-bot" id="index-banner">
@@ -69,7 +69,7 @@
     <div class="section">
             
 	
-  <? include 'rodape.php';?>
+  <?php include 'rodape.php';?>
 
 
   <!--  Scripts-->

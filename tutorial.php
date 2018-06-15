@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- comentário -->
-  <? include 'cabecalho.php';?>
+  <?php include 'cabecalho.php';?>
 
 <div class="container">
  <div class="section">
@@ -28,7 +28,7 @@
     </div>
 </div>
 
-  <? include 'rodape.php';?>
+  <?php include 'rodape.php';?>
 
  </div>
 </div>
