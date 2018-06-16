@@ -1,13 +1,10 @@
 <?php
 	
-	//session_start();
-	
-	//$id_usuario = $_SESSION['idusuario'];
-
-	//echo "olá mundo";
-	
-	//$_SESSION['id_usuario'] = $id_usuario;
-
+	session_start();
+	 $_SESSION['pid'] = 0;
+	 $_SESSION['chegada'] = 0;
+	 $_SESSION['processos'] = array();
+	 
 ?>
 
 <!DOCTYPE html>

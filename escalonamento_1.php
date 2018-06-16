@@ -1,13 +1,30 @@
 <?php
 	 
 	 session_start();
-
-	 $algoritmo = $_POST["algoritmo"];
 	 
-	 $_SESSION['algoritmo'] = $algoritmo;
+	 //recebe os valores do form
 	 
-	 //criar condições e alerta em javascrip para ele não acessar a página caso não tenha selecionado as opções anteriores da página.,
+	 $tipodoProcesso = $_POST["tipodoProcesso"];
+	 $tempCPU = $_POST["tempCPU"];
 	 
+	 //cria as seções que faltam conforme os dados apresentados
+	 
+	 
+	 $_SESSION['tipo'] = $tipodoProcesso;
+	 $_SESSION['tempoCPU'] = $tempCPU;
+	 $_SESSION['restante'] = $_SESSION['tempoCPU'];
+	 
+	 $processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P" );
+	 
+	 array_push($_SESSION['processos'],$processo);
+	 
+	 echo $_SESSION['tipo'];
+	 echo $_SESSION['tempoCPU'];
+	 
+	//$_SESSION['pid'] = $_SESSION['pid'] + 1;
+	//$_SESSION['chegada'] = $_SESSION['chegada'] + 2;
+	 
+	
 	 
 ?>
 
@@ -36,133 +53,75 @@
 		
 			if($_SESSION['algoritmo'] == 0)
 			 {	
-				echo "Você escolheu o algoritmo First-Come First-Serve!";
+				echo "First-Come First-Serve!";
 				// descrição sobre o algoritmo
 			 } 
 			 
 			 if($_SESSION['algoritmo'] == 1)
 			 {	
-				echo "Você escolheu o algoritmo Shortest Job First!";
+				echo "Shortest Job First!";
 				// descrição sobre o algoritmo			
 			 } 
 			
 			 if($_SESSION['algoritmo'] == 2)
 			 {	
-				echo "Você escolheu o algoritmo Shortest Remaning Time Next!";
+				echo "Shortest Remaning Time Next!";
 				// descrição sobre o algoritmo			
 			 } 		
 					
 			 if($_SESSION['algoritmo'] == 3)
 			 {	
-				echo "Você escolheu o algoritmo Round-Robin!";
+				echo "Round-Robin!";
 				// descrição sobre o algoritmo			
 			 } 		
 			 
 			 if($_SESSION['algoritmo'] == 4)
 			 {	
-				echo "Você escolheu o algoritmo Prioridade!";
+				echo "Prioridade!";
 				// descrição sobre o algoritmo			
 			 } 				 
 
 			 if($_SESSION['algoritmo'] == 5)
 			 {	
-				echo "Você escolheu o algoritmo Múltiplas Filas!";
+				echo "Múltiplas Filas!";
 				// descrição sobre o algoritmo			
 			 } 		 
 			 
 			 if($_SESSION['algoritmo'] == 6)
 			 {	
-				echo "Você escolheu o algoritmo Shortest Process Next!";
+				echo "Shortest Process Next!";
 				// descrição sobre o algoritmo			
 			 } 		
 
 			 if($_SESSION['algoritmo'] == 7)
 			 {	
-				echo "Você escolheu o algoritmo Garantido!";
+				echo "Garantido!";
 				// descrição sobre o algoritmo			
 			 } 		
 
 			 if($_SESSION['algoritmo'] == 8)
 			 {	
-				echo "Você escolheu o algoritmo Loteria!";
+				echo "Loteria!";
 				// descrição sobre o algoritmo			
 			 } 			 		 
 			 
 			 if($_SESSION['algoritmo'] == 9)
 			 {	
-				echo "Você escolheu o algoritmo Fair-Share!";
+				echo "Fair-Share!";
 				// descrição sobre o algoritmo			
 			 } 			 		 
 			 
-		?>
+		?>	 		 
+			 
 		</h5>
 	<br><br>
 	
 	
 	<?php
-	 
-	 if($_SESSION['pid'] ==0)
-		 {			 
-			 echo "<font color= \"#0000FF\"> IMPORTANTE: Você não tem nenhum processo criado. É necessário criar um novo processo. </font>";
-			 echo "<br> <br> <br>";
-			 echo"
-				<form action=\"escalonamento_1.php\" method=\"POST\">
-				
-					<p>
-					  <label>
-						<span> <font color= \"#0000FF\"> Escolha o tipo do processo:</font></span>
-					  </label>
-					</p>
-				
-					<p>
-					  <label>
-						<input type=\"radio\" name=\"tipodoProcesso\" value=\"0\" checked>  
-						<span>CPU bound</span>
-					  </label>
-					</p>
-					
-					<p>
-					  <label>
-						<input type=\"radio\" name=\"tipodoProcesso\" value=\"1\">  
-						<span>I/O bound</span>
-					  </label>
-					</p>
-
-					<p>
-					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tempo que o processo vai gastar na CPU:</font></span>
-					  </label>
-					</p>
-
-					<p class=\"range-field\">
-					  <label>
-						<input type=\"range\" name=\"tempCPU\" min=\"0\" max=\"100\">  
-						<span>Tempo</span>
-					  </label>
-					</p>					
-				
-					<p> 
-						<input button class=\"btn light-blue lighten-1\" type=\"button\" name=\"sair\" value=\"VOLTAR\" onClick=\"history.go (-1)\"> 
-						<input button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"button\" value=\"PRÓXIMO\"> 
-					</p>
-
-				</form>
-				";
-			 
-
-		 }
-	 
-	 if ($_SESSION['pid'] > 0 )
-		 {
-			 
-			 //fazer uma condição - criar um novo processo ou executar
-			 // vai criar um novo id p/ um novo processo
-			 
-			 
-			 //se criar um novo processo
-
-			 
-		 }	
+	
+	
+	
+	
 	
 	?>
 	

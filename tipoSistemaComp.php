@@ -1,5 +1,9 @@
 <?php
-	 $tipoSC = $_POST["tipoSC"];
+	 session_start();
+	
+		
+		$tipoSC = $_POST["tipoSC"];
+		$_SESSION['tipoSC'] = $tipoSC;
 	
 ?>
 
