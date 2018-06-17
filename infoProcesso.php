@@ -111,7 +111,7 @@
 		</thead>
 		<tbody>
 			<?php
-			foreach ($_SESSION['processos'] as $processo) {
+			foreach ($_SESSION['processosProntos'] as $processo) {
 				if($processo["estado"] == 'P')
 					echo('<tr><td>'.$processo["pid"].'</td><td>'.$processo["chegada"].'</td><td>'.$processo["tipo"].'</td><td>'.$processo["tempoCPU"].'</td><td>'.$processo["restante"].'</td><td>'.$processo["estado"].'</td></tr>');	
 			}

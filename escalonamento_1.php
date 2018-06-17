@@ -1,31 +1,57 @@
 <?php
-	 
-	 session_start();
-	 
+
+session_start();
+
 	 //recebe os valores do form
-	 
-	 $tipodoProcesso = $_POST["tipodoProcesso"];
-	 $tempCPU = $_POST["tempCPU"];
-	 
+
+$tipodoProcesso = $_POST["tipodoProcesso"];
+$tempCPU = $_POST["tempCPU"];
+
 	 //cria as seções que faltam conforme os dados apresentados
-	 
-	 if($tipodoProcesso==0)
-	 {
-		 $_SESSION['tipo'] = "CPU bound";
-	 }
-	 
-	 if($tipodoProcesso==1)
-	 {
-		 $_SESSION['tipo'] = "I/O bound";
-	 }	 
 
-	 $_SESSION['tempoCPU'] = $tempCPU;
-	 $_SESSION['restante'] = $_SESSION['tempoCPU'];
-	 
-	 $processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P" );
-	 
-	 array_push($_SESSION['processos'],$processo);
+if($tipodoProcesso==0)
+{
+	$_SESSION['tipo'] = "CPU bound";
+}
 
-	header('Location: ./gerenciarProcesso.php');
-	 
+if($tipodoProcesso==1)
+{
+	$_SESSION['tipo'] = "I/O bound";
+}	 
+
+$_SESSION['tempoCPU'] = $tempCPU;
+$_SESSION['restante'] = $_SESSION['tempoCPU'];
+
+$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10);
+
+array_push($_SESSION['processosProntos'],$processo);
+
+if($_SESSION['algoritmo'] == 1){
+	ordena();
+}
+
+
+function ordena(){
+
+	$array_size = sizeof($_SESSION['processosProntos']);
+	$numbers = $_SESSION['processosProntos'];
+	
+	for ( $i = 0; $i < $array_size; $i++ )
+	{
+		for ($j = 0; $j < $array_size; $j++ )
+		{
+			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
+			{
+				$temp = $numbers[$i];
+				$numbers[$i] = $numbers[$j];
+				$numbers[$j] = $temp;
+			}
+		}
+	}
+
+	$_SESSION['processosProntos'] = $numbers;
+}
+
+header('Location: ./gerenciarProcesso.php');
+
 ?>

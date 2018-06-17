@@ -3,5 +3,5 @@
 	$_SESSION['pid'] = $_SESSION['pid'] + 1;
 	$_SESSION['chegada'] = $_SESSION['chegada'] + 2;
 	
-	header('Location: ./escalonamento.php');
+	header('Location: ./processo.php');
 ?>
