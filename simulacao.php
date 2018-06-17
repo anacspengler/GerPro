@@ -1,6 +1,7 @@
 <?php
-	
+
 	session_start();
+
 	 $_SESSION['pid'] = 0;
 	 $_SESSION['chegada'] = 0;
 	 $_SESSION['processosProntos'] = array();

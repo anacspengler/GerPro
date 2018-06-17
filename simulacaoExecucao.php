@@ -2,6 +2,9 @@
 <?php 
 session_start();
 
+		$array_size = sizeof($_SESSION['processoCPU']);
+		
+
 ?>
 <html lang="en">
 <head>
@@ -18,6 +21,20 @@ session_start();
   <!-- comentário -->
   <?php include "cabecalho.php"?>
 
+  		 <?php
+		 if(($_SESSION['algoritmo'] == 2) AND ($array_size != null ))
+			 {	
+				echo"
+						 <div class=\"col s12 m6 l3\">
+						   <a href=\"ExecEnovoProcesso.php\">
+						   <button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Criar um novo processo</button>
+
+						   </a>
+						 </div>
+				";
+			 }		
+		 ?>
+  
   <form method="POST" action="<?php echo($_SESSION['pagAlgoritmo'])?>">
 
     <div class="section no-pad-bot" id="index-banner">
@@ -28,6 +45,8 @@ session_start();
            <button class="btn light-blue lighten-1" type="submit" name="action">Avançar</button>
            <p><?php echo($_SESSION['tempoDecorrido'])?></p>
          </div>
+
+		 
          <div class="col s12 m6 l6">
           <ul class="collection with-header">
             <li class="collection-header"><h4>Executando</h4></li>

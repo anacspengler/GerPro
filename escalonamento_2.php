@@ -3,7 +3,7 @@
 session_start();
 
 	 //recebe os valores do form
-
+$tempGastoCPU = $_POST["tempGastoCPU"];
 $tipodoProcesso = $_POST["tipodoProcesso"];
 $tempCPU = $_POST["tempCPU"];
 
@@ -19,6 +19,7 @@ if($tipodoProcesso==1)
 	$_SESSION['tipo'] = "I/O bound";
 }	 
 
+$_SESSION['tempGastoCPU'] = $tempGastoCPU;
 $_SESSION['tempoCPU'] = $tempCPU;
 $_SESSION['restante'] = $_SESSION['tempoCPU'];
 
@@ -31,7 +32,20 @@ if($_SESSION['algoritmo'] == 1){
 }
 
 if($_SESSION['algoritmo'] == 2){
+	$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['tempGastoCPU'];
+	
+	array_push($_SESSION['processosProntos'],$_SESSION['processoCPU']);
+	
 	ordena_SRTN();
+	
+	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
+	
+	/*REMOVE O PRIMEIRO PROCESSO DA FILA*/
+	unset($_SESSION['processosProntos'][0]);
+
+	/*REORGANIZA O ARRAY DE PROCESSOS PRONTOS*/
+	$_SESSION['processosProntos'] = array_values($_SESSION['processosProntos']);
+
 }
 
 
@@ -56,6 +70,7 @@ function ordena_SJF(){
 	$_SESSION['processosProntos'] = $numbers;
 }
 
+
 function ordena_SRTN(){
 
 	$array_size = sizeof($_SESSION['processosProntos']);
@@ -77,6 +92,6 @@ function ordena_SRTN(){
 	$_SESSION['processosProntos'] = $numbers;
 }
 
-header('Location: ./gerenciarProcesso.php');
+header('Location: ./simulacaoExecucao.php');
 
 ?>
