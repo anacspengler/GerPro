@@ -8,10 +8,17 @@ $_SESSION['finalizaEscalonamento'] = false;
 $_SESSION['tempoDecorrido'] = 0;
 $_SESSION['processoCPU'] = array();
 $_SESSION['processosFinalizados'] = array();
+$_SESSION['tempoTroca'] = 1;
+$_SESSION['tempoIO'] = 5;
+$_SESSION['quantum'] = 5;
+$_SESSION['processosBloqueados'] = array();
 
 switch ($_SESSION['algoritmo']) {
 	case 0:
 	$_SESSION['pagAlgoritmo'] = $retorno."fcfs.php";
+
+	case 3:
+	$_SESSION['pagAlgoritmo'] = $retorno."roundRobin.php";
 	break;
 
 	default:

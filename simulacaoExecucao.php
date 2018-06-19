@@ -113,6 +113,28 @@ session_start();
           </table>
         </ul>
       </div>
+
+      <div class="col s12 m6 l6">
+        <ul class="collection with-header">
+          <li class="collection-header"><h4>Processos Bloqueados</h4></li>
+          <table>
+            <thead>
+              <th>PID</th>
+              <th>Chegada</th>
+              <th>Tipo do Processo</th>
+              <th>Tempo Restante</th>
+               <th>Tempo IO</th>
+            </thead>
+            <tbody>
+              <?php
+              foreach ($_SESSION['processosBloqueados'] as $processo) {
+                echo('<tr><td>'.$processo["pid"].'</td><td>'.$processo["chegada"].'</td><td>'.$processo["tipo"].'</td><td>'.$processo["restante"].'</td><td>'.$processo["tempoIO"].'</td></tr>'); 
+              }
+              ?>
+            </tbody>
+          </table>
+        </ul>
+      </div>
     </div>  
 
 
