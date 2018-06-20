@@ -46,6 +46,11 @@ if($_SESSION['algoritmo'] == 4)
 	ordena_Prioridade();
 }
 
+if($_SESSION['algoritmo'] == 6)
+{
+	ordena_SPN();
+}
+
 
 function ordena_SJF(){
 
@@ -99,6 +104,28 @@ function ordena_Prioridade(){
 		for ($j = 0; $j < $array_size; $j++ )
 		{
 			if ($numbers[$i]['prioridade'] < $numbers[$j]['prioridade'])
+			{
+				$temp = $numbers[$i];
+				$numbers[$i] = $numbers[$j];
+				$numbers[$j] = $temp;
+			}
+		}
+	}
+
+	$_SESSION['processosProntos'] = $numbers;
+}
+
+
+function ordena_SPN(){
+
+	$array_size = sizeof($_SESSION['processosProntos']);
+	$numbers = $_SESSION['processosProntos'];
+	
+	for ( $i = 0; $i < $array_size; $i++ )
+	{
+		for ($j = 0; $j < $array_size; $j++ )
+		{
+			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
 			{
 				$temp = $numbers[$i];
 				$numbers[$i] = $numbers[$j];
