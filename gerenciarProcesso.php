@@ -113,7 +113,7 @@ session_start();
 		
 	<div class="container">
 	  <br><br>
-	    <a href="iniciaSimulacao.php">
+	    <a href="definicoes.php">
 	      <button class="btn light-blue lighten-1" type="submit" name="action">Executar a simulação
               <i class="material-icons right">send</i>
           </button></a>
