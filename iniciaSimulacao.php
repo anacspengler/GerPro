@@ -12,6 +12,8 @@ $_SESSION['tempoTroca'] = 1;
 $_SESSION['tempoIO'] = 5;
 $_SESSION['quantum'] = 5;
 $_SESSION['processosBloqueados'] = array();
+$_SESSION['prioridades'] = array();
+$_SESSION['fila'] = array();
 
 		if($_SESSION['algoritmo']==0){
 			$_SESSION['pagAlgoritmo'] = $retorno."fcfs.php";

@@ -9,7 +9,7 @@ $tempCPU = $_POST["tempCPU"];
 
 $prioridade=0;
 
-if($_SESSION['algoritmo'] == 4)
+if($_SESSION['algoritmo'] == 4 || $_SESSION['algoritmo'] == 5)
 {
 	$prioridade = $_POST["prioridade"];
 }
@@ -29,7 +29,7 @@ if($tipodoProcesso==1)
 $_SESSION['tempoCPU'] = $tempCPU;
 $_SESSION['restante'] = $_SESSION['tempoCPU'];
 
-$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10, "bilhete" => $_SESSION['pid'], "prioridade"=> $_SESSION['prioridade']);
+$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10, "bilhete" => $_SESSION['pid'], "prioridade"=> $prioridade);
 
 array_push($_SESSION['processosProntos'],$processo);
 
