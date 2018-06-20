@@ -18,7 +18,7 @@ session_start();
   <?php include "cabecalho.php"?>
 
   		 <?php
-		 if(($_SESSION['algoritmo'] == 2) AND ($array_size != null ))
+		 if(($_SESSION['algoritmo'] == 2) AND ($_SESSION['processoCPU'] != null ))
 			 {	
 				echo"
 						 <div class=\"col s12 m6 l3\">
@@ -142,14 +142,7 @@ session_start();
   <div class="section">
 
 
-    <footer class="page-footer orange">
-      <div class="footer-copyright">
-        <div class="container">
-          <p>Feito por Ana Spengler, Leo Natan, João Biazotto</p>
-        </div>
-      </div>
-    </footer>
-
+<?php include 'rodape.php';?>
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

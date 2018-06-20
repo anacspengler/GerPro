@@ -140,9 +140,34 @@ session_start();
 						<input type=\"range\" name=\"tempCPU\" min=\"0\" max=\"100\">  
 						<span>Tempo</span>
 					  </label>
-					</p>					
-				
-					<p> 
+					</p>";
+					
+					if($_SESSION['algoritmo'] == 4)
+					{
+						echo "	
+						<p>
+							<label>
+								<span> <font color= \"red\"> Atribua uma prioridade para o processo que está criando:</font></span>
+							</label>
+						</p>
+						<p>
+							<label>
+								<span> <font color= \"red\"> Lembrete: Prioridades são atribupídas por decrescente (0 é a mais alta) </font></span>
+							</label>
+						</p>						
+						<p>
+
+						<p class=\"range-field\">
+						  <label>
+							<input type=\"range\" name=\"prioridade\" min=\"0\" max=\"9\">  
+							<span>Tempo</span>
+						  </label>
+						</p>						
+						
+						";
+					}
+
+					echo "<p> 
 						<input button class=\"btn light-blue lighten-1\" type=\"button\" name=\"sair\" value=\"VOLTAR\" onClick=\"history.go (-1)\"> 
 						<input button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"button\" value=\"PRÓXIMO\"> 
 					</p>

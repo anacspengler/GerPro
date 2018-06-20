@@ -13,41 +13,46 @@ $_SESSION['tempoIO'] = 5;
 $_SESSION['quantum'] = 5;
 $_SESSION['processosBloqueados'] = array();
 
-switch ($_SESSION['algoritmo']) {
-	case 0:
-	$_SESSION['pagAlgoritmo'] = $retorno."fcfs.php";
-
-	case 3:
-	$_SESSION['pagAlgoritmo'] = $retorno."roundRobin.php";
-
-	case 8:
-	$_SESSION['pagAlgoritmo'] = $retorno."loteria.php";
-
-	break;
-
-	default:
-
-	break;
-}
-
-function ordena(){
-
-	$array_size = sizeof($_SESSION['processosProntos']);
-	$numbers = $_SESSION['processosProntos'];
-	
-	for ( $i = 0; $i < $array_size; $i++ )
-	{
-		for ($j = 0; $j < $array_size; $j++ )
-		{
-			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
-			{
-				$temp = $numbers[$i];
-				$numbers[$i] = $numbers[$j];
-				$numbers[$j] = $temp;
-			}
+		if($_SESSION['algoritmo']==0){
+			$_SESSION['pagAlgoritmo'] = $retorno."fcfs.php";
 		}
-	}
-}
+
+		if($_SESSION['algoritmo']==1){
+			$_SESSION['pagAlgoritmo'] = $retorno."sjf.php";
+		}
+
+		if($_SESSION['algoritmo']==2){
+			$_SESSION['pagAlgoritmo'] = $retorno."srtn.php";
+		}
+
+		if($_SESSION['algoritmo']==3){
+			$_SESSION['pagAlgoritmo'] = $retorno."roundRobin.php";
+		}
+
+		if($_SESSION['algoritmo']==4){
+			$_SESSION['pagAlgoritmo'] = $retorno."prioridade.php";
+		}
+
+		if($_SESSION['algoritmo']==5){
+			$_SESSION['pagAlgoritmo'] = $retorno."mn.php";
+		}
+
+		if($_SESSION['algoritmo']==6){
+			$_SESSION['pagAlgoritmo'] = $retorno."spn.php";
+		}
+
+		if($_SESSION['algoritmo']==7){
+			$_SESSION['pagAlgoritmo'] = $retorno."garantido.php";
+		}
+
+		if($_SESSION['algoritmo']==8){
+			$_SESSION['pagAlgoritmo'] = $retorno."loteria.php";
+		}
+
+		if($_SESSION['algoritmo']==9){
+			$_SESSION['pagAlgoritmo'] = $retorno."fs.php";
+		}
+
 
 header('location:simulacaoExecucao.php');
 ?>

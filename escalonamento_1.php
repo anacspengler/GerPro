@@ -7,6 +7,13 @@ session_start();
 $tipodoProcesso = $_POST["tipodoProcesso"];
 $tempCPU = $_POST["tempCPU"];
 
+$prioridade=0;
+
+if($_SESSION['algoritmo'] == 4)
+{
+	$prioridade = $_POST["prioridade"];
+}
+
 	 //cria as seções que faltam conforme os dados apresentados
 
 if($tipodoProcesso==0)
@@ -22,7 +29,7 @@ if($tipodoProcesso==1)
 $_SESSION['tempoCPU'] = $tempCPU;
 $_SESSION['restante'] = $_SESSION['tempoCPU'];
 
-$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10, "bilhete" => $_SESSION['pid']);
+$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10, "bilhete" => $_SESSION['pid'], "prioridade"=> $_SESSION['prioridade']);
 
 array_push($_SESSION['processosProntos'],$processo);
 
@@ -32,6 +39,11 @@ if($_SESSION['algoritmo'] == 1){
 
 if($_SESSION['algoritmo'] == 2){
 	ordena_SRTN();
+}
+
+if($_SESSION['algoritmo'] == 4)
+{
+	ordena_Prioridade();
 }
 
 
@@ -66,6 +78,27 @@ function ordena_SRTN(){
 		for ($j = 0; $j < $array_size; $j++ )
 		{
 			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
+			{
+				$temp = $numbers[$i];
+				$numbers[$i] = $numbers[$j];
+				$numbers[$j] = $temp;
+			}
+		}
+	}
+
+	$_SESSION['processosProntos'] = $numbers;
+}
+
+function ordena_Prioridade(){
+
+	$array_size = sizeof($_SESSION['processosProntos']);
+	$numbers = $_SESSION['processosProntos'];
+	
+	for ( $i = 0; $i < $array_size; $i++ )
+	{
+		for ($j = 0; $j < $array_size; $j++ )
+		{
+			if ($numbers[$i]['prioridade'] < $numbers[$j]['prioridade'])
 			{
 				$temp = $numbers[$i];
 				$numbers[$i] = $numbers[$j];

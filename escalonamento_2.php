@@ -48,7 +48,8 @@ if($_SESSION['algoritmo'] == 2){
 
 }
 
-
+/*
+deletar
 function ordena_SJF(){
 
 	$array_size = sizeof($_SESSION['processosProntos']);
@@ -70,7 +71,7 @@ function ordena_SJF(){
 	$_SESSION['processosProntos'] = $numbers;
 }
 
-
+*/
 function ordena_SRTN(){
 
 	$array_size = sizeof($_SESSION['processosProntos']);

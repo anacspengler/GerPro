@@ -2,13 +2,6 @@
 	 
 	 session_start();
 	 
-
-	// $processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P" );
-	 
-	// array_push($_SESSION['processos'],$processo);
-
-	
-	 
 ?>
 
 <!DOCTYPE html>
