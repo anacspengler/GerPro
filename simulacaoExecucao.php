@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-
-		$array_size = sizeof($_SESSION['processoCPU']);
-		
-
 ?>
 <html lang="en">
 <head>
@@ -43,7 +39,6 @@ session_start();
         <div class="row">
           <div class="col s12 m6 l3">
            <button class="btn light-blue lighten-1" type="submit" name="action">Avançar</button>
-           <p><?php echo($_SESSION['tempoDecorrido'])?></p>
          </div>
 
 		 

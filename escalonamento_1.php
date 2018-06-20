@@ -22,7 +22,7 @@ if($tipodoProcesso==1)
 $_SESSION['tempoCPU'] = $tempCPU;
 $_SESSION['restante'] = $_SESSION['tempoCPU'];
 
-$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10);
+$processo = array( "pid"=> $_SESSION['pid'], "chegada"=> $_SESSION['chegada'], "tipo"=> $_SESSION['tipo'], "restante"=> $_SESSION['restante'], "tempoCPU"=> $_SESSION['tempoCPU'], "estado" =>"P", "tempoIO" => 10, "bilhete" => $_SESSION['pid']);
 
 array_push($_SESSION['processosProntos'],$processo);
 

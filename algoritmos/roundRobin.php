@@ -16,9 +16,10 @@ if(!$_SESSION['finalizaEscalonamento']){
 		$_SESSION['iniciaEscalonamento'] = false;
 	} else {
 
-		/*RETIRA O PROCESSO DA CPU*/
+		/*TRATA OS PROCESSOS QUE ESTÃO BLOQUEADOS*/
 		trataIO();
 
+		//
 		saiDaCPU();
 
 		/*APAGA O PROCESSO DA CPU*/

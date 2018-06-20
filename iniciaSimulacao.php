@@ -19,6 +19,10 @@ switch ($_SESSION['algoritmo']) {
 
 	case 3:
 	$_SESSION['pagAlgoritmo'] = $retorno."roundRobin.php";
+
+	case 8:
+	$_SESSION['pagAlgoritmo'] = $retorno."loteria.php";
+
 	break;
 
 	default:
