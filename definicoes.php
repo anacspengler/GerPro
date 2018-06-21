@@ -94,7 +94,7 @@ session_start();
 	
 	<?php
 	 
-	 if($_SESSION['algoritmo']<2)
+	 if($_SESSION['algoritmo'] < 3)
 	 {
 		 header('Location: ./iniciaSimulacao.php');
 	 }

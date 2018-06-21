@@ -38,7 +38,18 @@ session_start();
         <br><br>
         <div class="row">
           <div class="col s12 m6 l3">
-           <button class="btn light-blue lighten-1" type="submit" name="action">Avançar</button>
+          <?php if(!$_SESSION['finalizaEscalonamento']){
+            echo  "<button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Avançar</button>";
+            
+          } else {
+            echo "<a href=\"relatorioSimulacao.php\"> Finalizar Simulação </a>";
+          }
+          ?>
+          
+          <p>Quantum: <?php echo $_SESSION['quantum'] ?></p>
+          <p>Operação de E/S: <?php echo $_SESSION['opES'] ?></p>
+          <p>Troca de Contexto: <?php echo $_SESSION['trocaContexto'] ?></p>
+          <p>Solicitação E/S: <?php echo $_SESSION['tempoProcesso'] ?></p>
          </div>
 
          <?php
@@ -66,6 +77,6 @@ session_start();
     <script src="js/init.js"></script>
   </form>
 
-<a href="relatorioSimulacao.php"> Finalizar Simulação </a>
+
 </body>
 </html>

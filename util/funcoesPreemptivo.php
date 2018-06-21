@@ -7,13 +7,13 @@ function trataIO(){
 	foreach ($_SESSION['processosBloqueados'] as $processo) {
 
 		if($_SESSION['processoCPU']['tipo'] == "CPU bound"){
-			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['quantum'];
+			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['quantum'] - $_SESSION['trocaContexto'];
 		} else {
-			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['tempoProcesso'];
+			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['tempoProcesso'] - $_SESSION['trocaContexto'];
 		}
 
 		if($processo['tempoIO'] <= 0){
-			$processo['tempoIO'] = 5;
+			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['processosProntos'],$processo);
 		} else {
 			array_push($processosAindaBloqueados, $processo);
@@ -32,7 +32,7 @@ function realocaProcessosBloqueados(){
 	$processos = array();
 
 	foreach ($_SESSION['processosBloqueados'] as $processo) {
-		$processo['tempoIO'] = $processo['tempoIO'] - $tempo;
+		$processo['tempoIO'] = $processo['tempoIO'] - $tempo - $_SESSION['trocaContexto'];
 		array_push($processos, $processo);
 	}
 
@@ -41,12 +41,13 @@ function realocaProcessosBloqueados(){
 
 	foreach ($_SESSION['processosBloqueados'] as $processo) {
 		if($processo['tempoIO'] <= 0 ){
+			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['processosProntos'], $processo);
 			unset($_SESSION['processosBloqueados'][$indice]);
 		}
 	}
 
-	$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $tempo;
+	$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $tempo +  $_SESSION['trocaContexto'];
 
 	$_SESSION['processosBloqueados'] = array_values($_SESSION['processosBloqueados']);	
 
