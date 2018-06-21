@@ -3,9 +3,9 @@
 /*INICIA A SESSÃO*/
 session_start();
 
-include_once "../util/funcoesPreemptivo.php";
-
 echo ($_SESSION['finalizaEscalonamento']);
+
+include_once "../util/funcoesPreemptivo.php";
 
 /*TESTA SE A VARIAVEL É VALIDA, OU SEJA, SE AINDA HÁ PROCESSOS PARA ESCALONAR*/
 if(!$_SESSION['finalizaEscalonamento']){
@@ -41,45 +41,31 @@ if(!$_SESSION['finalizaEscalonamento']){
 			}
 		}
 	}
+} else {
+
 }
 
-function removeProcessoPronto(){
+function removeProcessoPronto($indice){
 
 	/*REMOVE O PRIMEIRO PROCESSO DA FILA*/
-	unset($_SESSION['processosProntos'][0]);
+	unset($_SESSION['processosProntos'][$indice]);
 
 	/*REORGANIZA O ARRAY DE PROCESSOS PRONTOS*/
 	$_SESSION['processosProntos'] = array_values($_SESSION['processosProntos']);
 }
 
 function entraCPU(){
-	ordena_SPN();
 	/*COLOCA O PRIMEIRO PROCESSO DA FILA NA CPU*/
-	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
+	$indice = sorteiaBilhetes();
+	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][$indice];
 
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
-	removeProcessoPronto();
+	removeProcessoPronto($indice);
 }
 
-function ordena_SPN(){
+function sorteiaBilhetes(){
+	return rand(0, sizeof($_SESSION['processosProntos']) - 1);
 
-	$array_size = sizeof($_SESSION['processosProntos']);
-	$numbers = $_SESSION['processosProntos'];
-	
-	for ( $i = 0; $i < $array_size; $i++ )
-	{
-		for ($j = 0; $j < $array_size; $j++ )
-		{
-			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
-			{
-				$temp = $numbers[$i];
-				$numbers[$i] = $numbers[$j];
-				$numbers[$j] = $temp;
-			}
-		}
-	}
-
-	$_SESSION['processosProntos'] = $numbers;
 }
 
 header('location:../simulacaoExecucao.php');

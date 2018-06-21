@@ -113,13 +113,7 @@ session_start();
 						<span>Shortest Process Next </span>
 					  </label>
 					</p>			
-
-					<p>
-					  <label>
-						<input type=\"radio\" name=\"algoritmo\" value=\"7\">  
-						<span>Garantido </span>
-					  </label>
-					</p>	
+	
 
 					<p>
 					  <label>
@@ -128,13 +122,7 @@ session_start();
 					  </label>
 					</p>					
 
-					<p>
-					  <label>
-						<input type=\"radio\" name=\"algoritmo\" value=\"9\">  
-						<span>Fair-Share </span>
-					  </label>
-					</p>					
-					
+										
 					<!-- botao de enviar -->
 				
 					<p> 

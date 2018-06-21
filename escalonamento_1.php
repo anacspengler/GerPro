@@ -7,7 +7,7 @@ session_start();
 $tipodoProcesso = $_POST["tipodoProcesso"];
 $tempCPU = $_POST["tempCPU"];
 
-$prioridade=0;
+$prioridade = 0;
 
 if($_SESSION['algoritmo'] == 4 || $_SESSION['algoritmo'] == 5)
 {

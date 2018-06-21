@@ -142,7 +142,7 @@ session_start();
 					  </label>
 					</p>";
 					
-					if($_SESSION['algoritmo'] == 4)
+					if($_SESSION['algoritmo'] == 4 || $_SESSION['algoritmo'] == 5)
 					{
 						echo "	
 						<p>

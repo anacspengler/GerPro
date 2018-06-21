@@ -7,7 +7,7 @@
 	$tempoProcesso = $_POST["tempoProcesso"];
 	$loteriaPremp =0;
 	
-	if ($_SESSION['algoritmo'] ==8)
+	if ($_SESSION['algoritmo'] == 8)
 	{
 		$loteriaPremp = $_POST["loteriaPremp"];
 	}

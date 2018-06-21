@@ -55,7 +55,7 @@ function saiDaCPU(){
 
 
 	if($_SESSION['processoCPU']['tipo'] == "I/O bound"){
-		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - 1;
+		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['tempoProcesso'];
 
 		if($_SESSION['processoCPU']['restante'] > 0){
 			array_push($_SESSION['processosBloqueados'],$_SESSION['processoCPU']);
@@ -98,13 +98,13 @@ function trataIO(){
 	foreach ($_SESSION['processosBloqueados'] as $processo) {
 
 		if($_SESSION['processoCPU']['tipo'] == "CPU bound"){
-			$processo['tempoIO'] = $processo['tempoIO'] - 5;
+			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['quantum'];
 		} else {
-			$processo['tempoIO'] = $processo['tempoIO'] - 1;
+			$processo['tempoIO'] = $processo['tempoIO'] - $_SESSION['tempoProcesso'];
 		}
 
 		if($processo['tempoIO'] <= 0){
-			$processo['tempoIO'] = 5;
+			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['fila'],$processo);
 		} else {
 			array_push($processosAindaBloqueados, $processo);
@@ -176,8 +176,6 @@ function organizaListas(){
 
 	$_SESSION['processosProntos'] = array_values($_SESSION['processosProntos']);
 }
-
-
 
 function ordena_Prioridade(){
 
