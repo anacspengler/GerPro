@@ -3,6 +3,9 @@
 session_start();
 
 	 //recebe os valores do form
+$_SESSION['numeroLogs'] = sizeof($_SESSION['log']) - 1;
+include_once "util/geraLogs.php";
+
 $tempGastoCPU = $_POST["tempGastoCPU"];
 $tipodoProcesso = $_POST["tipodoProcesso"];
 $tempCPU = $_POST["tempCPU"];
@@ -37,9 +40,15 @@ if($_SESSION['algoritmo'] == 2){
 	array_push($_SESSION['processosProntos'],$_SESSION['processoCPU']);
 	
 	ordena_SRTN();
+
+	if ($_SESSION['processoCPU']['pid'] != $_SESSION['processosProntos'][0]['pid']){
+		geraLogs($_SESSION['processoCPU'], "sair");
+		geraLogs($_SESSION['processoCPU'], "pronto");
+	}
 	
 	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
 	
+	geraLogs($_SESSION['processoCPU'],"srtn");
 	/*REMOVE O PRIMEIRO PROCESSO DA FILA*/
 	unset($_SESSION['processosProntos'][0]);
 

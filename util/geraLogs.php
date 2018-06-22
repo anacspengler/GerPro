@@ -17,7 +17,9 @@ function geraLogs($processo, $acao){
 	} else if ($acao == "finaliza") {
 		$mensagem = "Processo PID ".$processo['pid']." foi finalizado";
 	} else if ($acao == "pronto"){
-		$mensagem = "Processo PID ".$processo['pid']." retornou para a lista de processos prontos";
+		$mensagem = "Processo PID ".$processo['pid']." vai para a lista de processos prontos";
+	} else if ($acao == "srtn"){
+		$mensagem = "Por ter menor tempo restante, o processo PID ".$processo['pid']." vai para a CPU";
 	}
 	array_push($_SESSION['log'],$mensagem);
 }
