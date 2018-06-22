@@ -113,7 +113,7 @@ function saiDaCPU(){
 			geraLogs($processo, "pronto");
 		} else {
 			array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
-			geraLogs($processo, "finalizar");
+			geraLogs($processo, "finaliza");
 		}
 	}	
 }
