@@ -18,7 +18,7 @@ session_start();
     function imprimir() {
       window.print();
     }
-  </script>>
+  </script>
   <!-- comentário -->
   <?php include "cabecalho.php"?>
 

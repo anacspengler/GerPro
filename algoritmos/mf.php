@@ -2,6 +2,7 @@
 
 /*INICIA A SESSÃO*/
 session_start();
+include_once "../util/geraLogs.php";
 
 echo ($_SESSION['finalizaEscalonamento']);
 
@@ -52,23 +53,28 @@ if(!$_SESSION['finalizaEscalonamento']){
 function saiDaCPU(){
 
 	/*COLOCA O PROCESSO NA LISTA DE PROCESSOS FINALIZADOS*/
-
+	$processo = $_SESSION['processoCPU'];
 
 	if($_SESSION['processoCPU']['tipo'] == "I/O bound"){
 		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['tempoProcesso'];
-
+		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['tempoProcesso'];
+		geraLogs($processo,"sair");
 		if($_SESSION['processoCPU']['restante'] > 0){
 			array_push($_SESSION['processosBloqueados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "bloquear");
 			/*ordenaBloqueados();*/
 		} else if ($_SESSION['processoCPU']['restante'] <= 0 ){
 			array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "finaliza");
 		}
 	} else  {
 		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['quantum'];
 		if($_SESSION['processoCPU']['restante'] > 0){
 			array_push($_SESSION['fila'],$_SESSION['processoCPU']);
+			geraLogs($processo, "pronto");
 		} else {
 			array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "finaliza");
 		}
 	}	
 }
@@ -84,7 +90,12 @@ function removeProcessoPronto(){
 
 function entraCPU(){
 	/*COLOCA O PRIMEIRO PROCESSO DA FILA NA CPU*/
+	if($_SESSION['processoCPU']['pid'] != $_SESSION['fila'][0]){
+		$_SESSION['numeroTrocaContexto'] = $_SESSION['numeroTrocaContexto'] + 1;
+	}
 	$_SESSION['processoCPU'] = $_SESSION['fila'][0];
+
+	geraLogs($_SESSION['processoCPU'],"entrar");
 
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
 	removeProcessoPronto();
@@ -106,8 +117,11 @@ function trataIO(){
 		if($processo['tempoIO'] <= 0){
 			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['fila'],$processo);
+			geraLogs($processo, "desbloquear");
+			geraLogs($processo, "pronto");
 		} else {
 			array_push($processosAindaBloqueados, $processo);
+			geraLogs($processo, "permaneceBloqueado");
 		}
 		$contador = $contador + 1;
 	}
@@ -133,7 +147,10 @@ function realocaProcessosBloqueados(){
 	foreach ($_SESSION['processosBloqueados'] as $processo) {
 		if($processo['tempoIO'] <= 0 ){
 			array_push($_SESSION['fila'], $processo);
+			geraLogs($processo, "desbloquear");
 			unset($_SESSION['processosBloqueados'][$indice]);
+		} else {
+			geraLogs($processo, "permaneceBloqueado");
 		}
 	}
 

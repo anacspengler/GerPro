@@ -41,6 +41,7 @@ if($_SESSION['algoritmo']==4){
 if($_SESSION['algoritmo']==5){
 	preencheTempoIO();
 	$_SESSION['pagAlgoritmo'] = $retorno."mf.php";
+	ordena_Prioridade();
 }
 
 if($_SESSION['algoritmo']==6){
@@ -86,6 +87,26 @@ function preencheTempoIO()
 	$_SESSION['processosProntos'] = $processos;
 }
 
+function ordena_Prioridade(){
+
+	$array_size = sizeof($_SESSION['processosProntos']);
+	$numbers = $_SESSION['processosProntos'];
+	
+	for ( $i = 0; $i < $array_size; $i++ )
+	{
+		for ($j = 0; $j < $array_size; $j++ )
+		{
+			if ($numbers[$i]['prioridade'] < $numbers[$j]['prioridade'])
+			{
+				$temp = $numbers[$i];
+				$numbers[$i] = $numbers[$j];
+				$numbers[$j] = $temp;
+			}
+		}
+	}
+
+	$_SESSION['processosProntos'] = $numbers;
+}
 
 header('location:simulacaoExecucao.php');
 ?>
