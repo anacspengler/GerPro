@@ -45,11 +45,11 @@ session_start();
             echo "<a href=\"relatorioSimulacao.php\"> Finalizar Simulação </a>";
           }
           ?>
-          
-          <p>Quantum: <?php echo $_SESSION['quantum'] ?></p>
-          <p>Operação de E/S: <?php echo $_SESSION['opES'] ?></p>
-          <p>Troca de Contexto: <?php echo $_SESSION['trocaContexto'] ?></p>
-          <p>Solicitação E/S: <?php echo $_SESSION['tempoProcesso'] ?></p>
+          <?php
+            if($_SESSION['algoritmo'] > 3){
+              include "parametrosSimulacao.php";
+            }
+          ?>
          </div>
 
          <?php

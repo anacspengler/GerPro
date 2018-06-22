@@ -52,10 +52,10 @@
     </div>    
 
 </div>
-<br><br>
+<?php include 'rodape.php';?>
 </div>
 
-  <?php include 'rodape.php';?>
+  
 
 
   <!--  Scripts-->

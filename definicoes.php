@@ -198,38 +198,7 @@ session_start();
 	 }
 	
 	?>
-	
-	<!-- bla bla -->
 
-	<!--
-	<div class="container">
-	  <br>
-	    <a href="#">
-	      <button class="btn light-blue lighten-1" type="submit" name="action">First-Come First-Server
-              <i class="material-icons right">send</i>
-            </button></a>
-        </div>
-	<div class="container">
-	  <br>
-	    <a href="#">
-	      <button class="btn light-blue lighten-1" type="submit" name="action" >Shortest Job First
-             <i class="material-icons right">send</i>
-           </button></a>
-        </div>
-        <div class="container">
-	  <br>
-	    <a href="#">
-	      <button class="btn light-blue lighten-1" type="submit" name="action" >Shortest Remaning Time Next
-             <i class="material-icons right">send</i>
-           </button></a>
-        </div>
-      </div>
-      <br><br>
-    </div>
-
-  </div>
-  
-  -->
   <div class="container">
     <div class="section">
 

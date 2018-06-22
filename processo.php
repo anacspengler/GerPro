@@ -159,7 +159,7 @@ session_start();
 
 						<p class=\"range-field\">
 						  <label>
-							<input type=\"range\" name=\"prioridade\" min=\"0\" max=\"9\">  
+							<input type=\"range\" name=\"prioridade\" min=\"0\" max=\"9\"s>  
 							<span>Tempo</span>
 						  </label>
 						</p>						
