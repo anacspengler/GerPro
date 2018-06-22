@@ -1,26 +1,21 @@
 <?php
 session_start();
-
-$_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
+	$_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-	<title>GerPro</title>
 
-	<!-- CSS  -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<?php include "cabecalho.php"?>
 <body>
-
+	<script type="text/javascript">
+		function imprimir() {
+			window.print();
+		}
+	</script>
 	<h4 class="header center orange-text">Resumo da Simulação</h4>
-	<a href="relatorioImpressao.php" target="_blank">Preparar página para impressão</a>
+	<button onclick="imprimir()">Imprimir</button>
 	<div class="row">
 		<p class="light">Início da Simulação: <?php echo $_SESSION['horaInicioSimulação']?></p>
 		<p class="light">Finalização da Simulação: <?php echo $_SESSION['horaFimSimulação']?></p>
@@ -35,7 +30,7 @@ $_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 		<p class="light">Tipo de Sistema Utilizado: <?php ?></p>
 		<p class="light">Algoritmo Utilizado: <?php ?></p>
 	</div>-->
-	<table class="responsive-table">
+	<table border="1">
 		<caption><h5>Processos Escalonados<h5></caption>
 		<thead>
 			<th>PID</th>
@@ -52,10 +47,10 @@ $_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 		</tbody>
 	</table>
 
-	<table class="responsive-table">
+	<table  border="1">
 		<caption><h5>Log da Simulacão<h5></caption>
 		<thead>
-			<th>Log</th>
+			
 		</thead>
 		<tbody>
 			<?php
@@ -65,9 +60,6 @@ $_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 			?>
 		</tbody>
 	</table>
-	<?php include "rodape.php";?>
-	
-	<button></button>
 </body>
 
 </html>

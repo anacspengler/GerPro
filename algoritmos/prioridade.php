@@ -4,8 +4,11 @@
 session_start();
 
 include_once "../util/funcoesPreemptivo.php";
+include_once "../util/geraLogs.php";
 
 echo ($_SESSION['finalizaEscalonamento']);
+
+$_SESSION['numeroLogs'] = sizeof($_SESSION['log']) - 1;
 
 /*TESTA SE A VARIAVEL É VALIDA, OU SEJA, SE AINDA HÁ PROCESSOS PARA ESCALONAR*/
 if(!$_SESSION['finalizaEscalonamento']){
@@ -58,6 +61,8 @@ function entraCPU(){
 	ordena_Prioridade();
 	/*COLOCA O PRIMEIRO PROCESSO DA FILA NA CPU*/
 	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
+
+	geraLogs($_SESSION['processoCPU'],"entrar");
 
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
 	removeProcessoPronto();

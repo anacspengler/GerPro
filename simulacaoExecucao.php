@@ -14,6 +14,11 @@ session_start();
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+  <script type="text/javascript">
+    function imprimir() {
+      window.print();
+    }
+  </script>>
   <!-- comentário -->
   <?php include "cabecalho.php"?>
 
@@ -65,9 +70,6 @@ session_start();
   </div>
 
 </div>
-<div class="container">
-  <div class="section">
-
 
 <?php include 'rodape.php';?>
 

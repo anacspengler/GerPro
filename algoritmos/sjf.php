@@ -2,7 +2,9 @@
 
 /*INICIA A SESSÃO*/
 session_start();
+include_once "../util/geraLogs.php";
 
+$_SESSION['numeroLogs'] = sizeof($_SESSION['log']) - 1;
 /*TESTA SE A VARIAVEL É VALIDA, OU SEJA, SE AINDA HÁ PROCESSOS PARA ESCALONAR*/
 if(!$_SESSION['finalizaEscalonamento']){
 	
@@ -33,6 +35,8 @@ if(!$_SESSION['finalizaEscalonamento']){
 }
 
 function saiDaCPU(){
+	geraLogs($_SESSION['processoCPU'], "finalizdo");
+	geraLogs($_SESSION['processoCPU'], "sair");
 	/*AGREGA O TEMPO DECORRIDO NA VARIÁVEL*/
 	$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + $_SESSION['processoCPU']['tempoIO'];
 
@@ -55,6 +59,8 @@ function removeProcessoPronto(){
 function entraCPU(){
 	/*COLOCA O PRIMEIRO PROCESSO DA FILA NA CPU*/
 	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
+
+	geraLogs($_SESSION['processoCPU'], "entrar");
 
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
 	removeProcessoPronto();
