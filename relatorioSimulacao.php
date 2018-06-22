@@ -24,6 +24,12 @@ $_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 		<p class="light">Início da Simulação: <?php echo $_SESSION['horaInicioSimulação']?></p>
 		<p class="light">Finalização da Simulação: <?php echo $_SESSION['horaFimSimulação']?></p>
 	</div>
+
+	<h4>Informações a Simulação</h4>
+	<p>Número de Processos Escalonados: <?php echo sizeof($_SESSION['processosFinalizados'])?></p>
+	<p>Tempo total da Simulação: <?php echo $_SESSION['tempoDecorrido']?></p>
+	<p>Número de troca de contextos: <?php echo $_SESSION['numeroTrocaContexto']?></p>
+	<p>Tempo Médio: <?php echo $_SESSION['tempoDecorrido'] / sizeof($_SESSION['processosFinalizados'])?></p>
 	<!--<div class="row">
 		<p class="light">Tipo de Sistema Utilizado: <?php ?></p>
 		<p class="light">Algoritmo Utilizado: <?php ?></p>
@@ -44,11 +50,21 @@ $_SESSION['horaFimSimulação'] = date("d/m/Y à\s h:i:s",time());
 			?>
 		</tbody>
 	</table>
-	<h4>Informações a Simulação</h4>
-	<p>Número de Processos Escalonados: <?php echo sizeof($_SESSION['processosFinalizados'])?></p>
-	<p>Tempo total da Simulação: <?php echo $_SESSION['tempoDecorrido']?></p>
-	<p>Número de troca de contextos: <?php echo $_SESSION['numeroTrocaContexto']?></p>
-	<p>Tempo Médio: <?php echo $_SESSION['tempoDecorrido'] / sizeof($_SESSION['processosFinalizados'])?></p>
+
+	<table class="responsive-table">
+		<caption><h5>Log da Simulacão<h5></caption>
+		<thead>
+			<th>Log</th>
+		</thead>
+		<tbody>
+			<?php
+			foreach ($_SESSION['log'] as $log) {
+				echo('<tr><td>'.$log.'</td></tr>'); 
+			}
+			?>
+		</tbody>
+	</table>
+	
 </body>
 <?php include "rodape.php";?>
 </html>

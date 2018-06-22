@@ -1,4 +1,6 @@
 <?php
+include_once "geraLogs.php";
+
 function trataIO(){
 
 	$contador = 0;
@@ -15,8 +17,11 @@ function trataIO(){
 		if($processo['tempoIO'] <= 0){
 			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['processosProntos'],$processo);
+			geraLogs($processo, "desbloquear");
+			geraLogs($processo, "pronto");
 		} else {
 			array_push($processosAindaBloqueados, $processo);
+			geraLogs($processo, "permaneceBloqueado");
 		}
 		$contador = $contador + 1;
 	}
@@ -44,6 +49,9 @@ function realocaProcessosBloqueados(){
 			$processo['tempoIO'] = $_SESSION['opES'];
 			array_push($_SESSION['processosProntos'], $processo);
 			unset($_SESSION['processosBloqueados'][$indice]);
+			geraLogs($processo, "desbloquear");
+		} else {
+			geraLogs($processo, "permaneceBloqueado");
 		}
 	}
 
@@ -77,25 +85,39 @@ function ordenaBloqueados(){
 function saiDaCPU(){
 
 	/*COLOCA O PROCESSO NA LISTA DE PROCESSOS FINALIZADOS*/
-
+	$processo = $_SESSION['processoCPU'];
 
 	if($_SESSION['processoCPU']['tipo'] == "I/O bound"){
+		
 		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['tempoProcesso'];
 		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['tempoProcesso'];
+		$processo = $_SESSION['processoCPU'];
+		geraLogs($processo,"sair");
+
 		if($_SESSION['processoCPU']['restante'] > 0){
 			array_push($_SESSION['processosBloqueados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "bloquear");
 			/*ordenaBloqueados();*/
 		} else if ($_SESSION['processoCPU']['restante'] <= 0 ){
 			array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "finaliza");
 		}
+
 	} else  {
+
 		$_SESSION['processoCPU']['restante'] = $_SESSION['processoCPU']['restante'] - $_SESSION['quantum'];
 		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['quantum'];
+
 		if($_SESSION['processoCPU']['restante'] > 0){
 			array_push($_SESSION['processosProntos'],$_SESSION['processoCPU']);
+			geraLogs($processo, "pronto");
 		} else {
 			array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
+			geraLogs($processo, "finalizar");
 		}
 	}	
 }
+
+
+
 ?>

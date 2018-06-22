@@ -13,7 +13,8 @@ $_SESSION['prioridades'] = array();
 $_SESSION['fila'] = array();
 $_SESSION['numeroTrocaContexto'] = 0;
 $_SESSION['horaInicioSimulação'] = date("d/m/Y à\s h:i:s",time());
-
+$_SESSION['log'] = array();
+$_SESSION['numeroLogs'] = 0;
 
 if($_SESSION['algoritmo']==0){
 	$_SESSION['pagAlgoritmo'] = $retorno."fcfs.php";
