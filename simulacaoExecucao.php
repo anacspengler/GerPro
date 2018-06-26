@@ -22,19 +22,19 @@ session_start();
   <!-- comentário -->
   <?php include "cabecalho.php"?>
 
-  		 <?php
-		 if(($_SESSION['algoritmo'] == 2) AND ($_SESSION['processoCPU'] != null ))
-			 {	
-				echo"
-						 <div class=\"col s12 m6 l3\">
-						   <a href=\"ExecEnovoProcesso.php\">
-						   <button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Criar um novo processo</button>
+  <?php
+  if(($_SESSION['algoritmo'] == 2) AND ($_SESSION['processoCPU'] != null ))
+  {	
+    echo"
+    <div class=\"col s12 m6 l3\">
+    <a href=\"ExecEnovoProcesso.php\">
+    <button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Criar um novo processo</button>
 
-						   </a>
-						 </div>
-				";
-			 }		
-		 ?>
+    </a>
+    </div>
+    ";
+  }		
+  ?>
   
   <form method="POST" action="<?php echo($_SESSION['pagAlgoritmo'])?>">
 
@@ -43,42 +43,36 @@ session_start();
         <br><br>
         <div class="row">
           <div class="col s12 m6 l3">
-          <?php if(!$_SESSION['finalizaEscalonamento']){
-            echo  "<button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Avançar</button>";
-            
-          } else {
-            echo "<a href=\"relatorioSimulacao.php\"> Finalizar Simulação </a>";
-          }
-          ?>
-          <?php
+            <?php
             if($_SESSION['algoritmo'] > 3){
               include "parametrosSimulacao.php";
             }
-          ?>
-         </div>
+            ?>
+          </div>
 
-         <?php
+          <?php
           if($_SESSION['algoritmo'] == 4 || $_SESSION['algoritmo'] == 5){
             include "tabelas/tabelaMf.php";
           } else {
             include "tabelas/tabelaGeral.php";
           }
-         ?>
-
-    <br><br>
-
-  </div>
-
-</div>
-
-<?php include 'rodape.php';?>
-
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-  </form>
+          ?>
 
 
-</body>
-</html>
+        </div>
+        <br><br><br>
+        <br><br>
+
+      </div>
+
+      <?php include 'rodape.php';?>
+
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+    </form>
+
+
+  </body>
+  </html>

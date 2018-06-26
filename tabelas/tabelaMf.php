@@ -68,6 +68,7 @@
     </table>
   </ul>
 </div>
+
 <div class="row">
   <div class="col s12 m12 l6">
     <ul class="collection with-header">
@@ -98,4 +99,29 @@
       </ul>
     </div>
   </div>
+  <div class="right">
+  <?php if(!$_SESSION['finalizaEscalonamento']){
+            echo  "<button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Avançar</button>";
+            
+          } else {
+            echo "<a href=\"relatorioSimulacao.php\"> Finalizar Simulação </a>";
+          }
+          ?>
 </div>
+<div class="row">
+  <div class="col s12 m12">
+    <table class="responsive-table">
+      <caption><h5>Feedback<h5></caption>
+        <thead>
+          <th>Mensagem</th>
+        </thead>
+        <tbody>
+          <?php
+          for ($i = $_SESSION['numeroLogs'] + 1; $i < sizeof($_SESSION['log']); $i++) {
+            echo('<tr><td>'.$_SESSION['log'][$i].'</td></tr>'); 
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
+  </div> 

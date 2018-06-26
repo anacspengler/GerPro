@@ -65,6 +65,15 @@
   </ul>
 </div>
 </div>
+<div class="right">
+  <?php if(!$_SESSION['finalizaEscalonamento']){
+            echo  "<button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Avançar</button>";
+            
+          } else {
+            echo "<a href=\"relatorioSimulacao.php\"> Finalizar Simulação </a>";
+          }
+          ?>
+</div>
 <div class="row">
   <div class="col s12 m12">
     <table class="responsive-table">

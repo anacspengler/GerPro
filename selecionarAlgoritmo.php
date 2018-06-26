@@ -19,21 +19,21 @@ session_start();
 	<script type="text/javascript">
 		function selecionaAlgoritmo(value){
 			if(value == 0){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre FCFS";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O First-Come First-Serve é um algoritmo não-preemptivo que consiste em uma fila, onde os processos são escalonados na ordem em que chegam.";
 			} else if(value == 1){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre SJB";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Shortest Job First é um algoritmo não-preemptivo que prioriza a execução dos algoritmos com menor tempo de CPU.";
 			} else if(value == 2){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre SRNT";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Shortest Remaning Time Next é um algoritmo preemptivo que prioriza a execução dos menores processos. Se um processo está sendo executado e um novo processo com menor tempo restante chega para ser escalonado, o processo da CPU é suspenso e o menor executado.";
 			} else if(value == 3){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre Round-Robin";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Round Robin é um algoritmo preemptivo que atribui frações de tempo (quantum) para cada processo em partes iguais e de forma circular, manipulando todos os processos sem prioridades.";
 			} else if(value == 4){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre Prioridade";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Prioridade é um algoritmo preemptivo onde cada processo possui uma prioridade. Os processos prontos com maior prioridade são executados primeiro"
 			} else if(value == 5){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre Multiplas filas";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Múltiplas Filas é um algoritmo onde os procesos são distribuidos em classes de prioridades. Cada classe (fila) é executada até o fim e os processos de outra classe somente são executados quando todos os processos da classe anterior forem finalizados";
 			} else if(value == 6){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre SPN";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Shortest Process Next é um algoritmo preemptivo que executa sempre o processo pronto com menor tempo restante";
 			} else {
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre Loteria";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "O Loteria é um algoritmo preemptivo ou não-preemptivo onde o sistema distribui bilhetes aos processos, e faz um sorteio cada vez que precisa selecionar um processo para a CPU";
 			}
 		}
 	</script>

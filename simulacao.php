@@ -25,9 +25,9 @@ $_SESSION['processosProntos'] = array();
 	<script type="text/javascript">
 		function selecionaAlgoritmo(value){
 			if(value == 0){
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre sistemas batch";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "Os sistemas batch são sistemas operacionais em que o processamento de dados que ocorre através de um lote de tarefas enfileiradas, de modo que o sistema operacional só processa a próxima tarefa após o término completo da tarefa anterior.";
 			} else {
-				document.getElementById('descricaoAlgoritmo').innerHTML = "Texto sobre sistemas iterativo";
+				document.getElementById('descricaoAlgoritmo').innerHTML = "Os sistemas iterativos são os aqueles onde o usuário interage com o computador mesmo durante a execução de um processo, através de dispositivos de E/S (mouse, teclado, dentre outros).";
 			}
 		}
 	</script>

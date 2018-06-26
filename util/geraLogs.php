@@ -20,7 +20,9 @@ function geraLogs($processo, $acao){
 		$mensagem = "Processo PID ".$processo['pid']." vai para a lista de processos prontos";
 	} else if ($acao == "srtn"){
 		$mensagem = "Por ter menor tempo restante, o processo PID ".$processo['pid']." vai para a CPU";
-	} 
+	} else {
+		$mensagem = $processo['pid']." ======== ".$acao;
+	}
 	array_push($_SESSION['log'],$mensagem);
 }
 

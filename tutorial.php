@@ -16,13 +16,13 @@
 
 <div class="container">
  <div class="section">
-
+<a href="tutorial.pdf" target="_BLANK">Tutorial</a>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
         <h1 class="header center orange-text">Tutorial</h1>
         <div class="container">
-          <embed src="Tutorial Uso GerPro.pdf" width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+          <embed src="tutorial.pdf" width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
         </div>
       <br><br>
     </div>

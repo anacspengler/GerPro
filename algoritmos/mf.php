@@ -5,6 +5,7 @@ session_start();
 include_once "../util/geraLogs.php";
 
 echo ($_SESSION['finalizaEscalonamento']);
+$_SESSION['numeroLogs'] = sizeof($_SESSION['log']) - 1;
 
 /*TESTA SE A VARIAVEL É VALIDA, OU SEJA, SE AINDA HÁ PROCESSOS PARA ESCALONAR*/
 if(!$_SESSION['finalizaEscalonamento']){
