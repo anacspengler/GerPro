@@ -37,6 +37,11 @@ session_start();
 						 echo "Crie um novo processo: </font>";
 						 echo "<br>";
 					 }
+
+					 if($_SESSION['algoritmo'] < 3){
+							 echo "<p>IMPORTANTE: Para esse tipo de sistema, considere: Tempo de I/O = 10 e Tempo de troca de contexto = 2</p>";
+							 echo "<br>";
+						}
 		?>
 		</h5>
 	<br><br>

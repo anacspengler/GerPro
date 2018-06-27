@@ -38,8 +38,11 @@ function saiDaCPU(){
 	geraLogs($_SESSION['processoCPU'], "finalizdo");
 	geraLogs($_SESSION['processoCPU'], "sair");
 	/*AGREGA O TEMPO DECORRIDO NA VARIÁVEL*/
-	$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + $_SESSION['processoCPU']['tempoIO'];
-
+	if($_SESSION['processoCPU']['tipo'] == "CPU bound"){
+		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + 2;
+	} else if ($_SESSION['processoCPU']['tipo'] == "I/O bound") {
+		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + 10 + 2;
+	}
 	/*COLOCA O PROCESSO NA LISTA DE PROCESSOS FINALIZADOS*/
 	array_push($_SESSION['processosFinalizados'],$_SESSION['processoCPU']);
 
