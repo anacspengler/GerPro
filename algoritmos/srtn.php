@@ -41,9 +41,9 @@ function saiDaCPU(){
 	geraLogs($_SESSION['processoCPU'], "sair");
 	/*AGREGA O TEMPO DECORRIDO NA VARIÁVEL*/
 	if($_SESSION['processoCPU']['tipo'] == "CPU bound"){
-		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + 2;
+		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['restante'] + 2;
 	} else if ($_SESSION['processoCPU']['tipo'] == "I/O bound") {
-		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['tempoCPU'] + 10 + 2;
+		$_SESSION['tempoDecorrido'] = $_SESSION['tempoDecorrido'] + $_SESSION['processoCPU']['restante'] + 10 + 2;
 	}
 
 	/*COLOCA O PROCESSO NA LISTA DE PROCESSOS FINALIZADOS*/
@@ -63,10 +63,14 @@ function removeProcessoPronto(){
 }
 
 function entraCPU(){
+	$aux = $_SESSION['processoCPU'];
 	
 	/*COLOCA O PRIMEIRO PROCESSO DA FILA NA CPU*/
 	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
 	geraLogs($_SESSION['processoCPU'], "entrar");
+	if($_SESSION['processoCPU']['pid'] != $aux['pid']){
+		$_SESSION['numeroTrocaContexto'] = $_SESSION['numeroTrocaContexto'] + 1;
+	}
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
 	removeProcessoPronto();
 }

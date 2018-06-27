@@ -82,7 +82,7 @@ function ordena_SRTN(){
 	{
 		for ($j = 0; $j < $array_size; $j++ )
 		{
-			if ($numbers[$i]['tempoCPU'] < $numbers[$j]['tempoCPU'])
+			if ($numbers[$i]['restante'] < $numbers[$j]['restante'])
 			{
 				$temp = $numbers[$i];
 				$numbers[$i] = $numbers[$j];

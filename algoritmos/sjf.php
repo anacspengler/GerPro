@@ -35,7 +35,7 @@ if(!$_SESSION['finalizaEscalonamento']){
 }
 
 function saiDaCPU(){
-	geraLogs($_SESSION['processoCPU'], "finalizdo");
+	geraLogs($_SESSION['processoCPU'], "finaliza");
 	geraLogs($_SESSION['processoCPU'], "sair");
 	/*AGREGA O TEMPO DECORRIDO NA VARIÁVEL*/
 	if($_SESSION['processoCPU']['tipo'] == "CPU bound"){
@@ -64,6 +64,8 @@ function entraCPU(){
 	$_SESSION['processoCPU'] = $_SESSION['processosProntos'][0];
 
 	geraLogs($_SESSION['processoCPU'], "entrar");
+
+	$_SESSION['numeroTrocaContexto'] = $_SESSION['numeroTrocaContexto'] + 1;
 
 	/*REMOVE O PROCESSO DA LISTA DE PRONTOS*/
 	removeProcessoPronto();
