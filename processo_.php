@@ -32,65 +32,17 @@ $aux= $_SESSION['processoCPU']['restante'];
         <h5 class="header col s12 light">
 		<?php 
 		
-			if($_SESSION['algoritmo'] == 0)
-			 {	
-				echo "Algoritmo escolhido: First-Come First-Serve!";
-				// descrição sobre o algoritmo
-			 } 
-			 
-			 if($_SESSION['algoritmo'] == 1)
-			 {	
-				echo "Algoritmo escolhido: Shortest Job First!";
-				// descrição sobre o algoritmo			
-			 } 
-			
-			 if($_SESSION['algoritmo'] == 2)
-			 {	
-				echo "Algoritmo escolhido: Shortest Remaning Time Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-					
-			 if($_SESSION['algoritmo'] == 3)
-			 {	
-				echo "Algoritmo escolhido: Round-Robin!";
-				// descrição sobre o algoritmo			
-			 } 		
-			 
-			 if($_SESSION['algoritmo'] == 4)
-			 {	
-				echo "Algoritmo escolhido: Prioridade!";
-				// descrição sobre o algoritmo			
-			 } 				 
-
-			 if($_SESSION['algoritmo'] == 5)
-			 {	
-				echo "Algoritmo escolhido: Múltiplas Filas!";
-				// descrição sobre o algoritmo			
-			 } 		 
-			 
-			 if($_SESSION['algoritmo'] == 6)
-			 {	
-				echo "Algoritmo escolhido: Shortest Process Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 7)
-			 {	
-				echo "Algoritmo escolhido: Garantido!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 8)
-			 {	
-				echo "Algoritmo escolhido: Loteria!";
-				// descrição sobre o algoritmo			
-			 } 			 		 
-			 
-			 if($_SESSION['algoritmo'] == 9)
-			 {	
-				echo "Algoritmo escolhido: Fair-Share!";
-				// descrição sobre o algoritmo			
-			 } 	 		 
+				 if($_SESSION['pid'] ==0)
+					 {			 
+						 echo "Crie o seu primeiro processo:";
+						 echo "<br>";
+					 }
+					 
+				 if($_SESSION['pid'] > 0)
+					 {			 
+						 echo "Crie um novo processo: </font>";
+						 echo "<br>";
+					 }
 			 
 		?>
 		</h5>
@@ -99,22 +51,19 @@ $aux= $_SESSION['processoCPU']['restante'];
 	
 	<?php
 	 
-		 
-			 echo "<font color= \"#0000FF\"> Você está criando um novo processo durante a execução de um processo </font>";
-			 echo "<br> <br> <br>";
 
 			echo"
 				<form action=\"escalonamento_2.php\" method=\"POST\">
 				
 					<p>
 					  <label>
-						<span> <font color= \"#DF013A\"> SOBRE O PROCESSO EM EXECUÇÃO </font></span>
+						<span> <font color= \"#DF013A\"> <h5> SOBRE O PROCESSO EM EXECUÇÃO </h5> </font></span>
 					  </label>
 					</p>
 				
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Como você está criando um novo processo durante a execução de um processo existente, <br> por favor definia o tempo que o processso que está na CPU gastou</font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Como você está criando um novo processo durante a execução de um processo existente, <br> por favor definia o tempo que o processso que está na CPU gastou <h6></font></span>
 					  </label>
 					</p>
 
@@ -127,13 +76,13 @@ $aux= $_SESSION['processoCPU']['restante'];
 				
 					<p>
 					  <label>
-						<span> <font color= \"#DF013A\"> SOBRE O NOVO PROCESSO </font></span>
+						<span> <font color= \"#DF013A\"> <h5> SOBRE O NOVO PROCESSO </h5> </font></span>
 					  </label>
 					</p>				
 				
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Escolha o tipo do processo:</font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Escolha o tipo do processo: <h6> </font></span>
 					  </label>
 					</p>
 				
@@ -153,7 +102,7 @@ $aux= $_SESSION['processoCPU']['restante'];
 
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tempo que o processo vai gastar na CPU:</font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Defina o tempo que o processo vai gastar na CPU: </h6> </font></span>
 					  </label>
 					</p>
 

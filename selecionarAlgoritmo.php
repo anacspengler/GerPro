@@ -50,11 +50,11 @@ session_start();
 
 					if($_SESSION['tipoSC'] == 0)
 					{	
-						echo "Você escolheu um Sistema Batch!";
+						echo "Selecione um dos algortimos do Sistema Batch:";
 					} 
 					if($_SESSION['tipoSC'] == 1)
 					{	
-						echo "Você escolheu um Sistema Interativo!";
+						echo "Selecione um dos algortimos do Sistema Interativo:";
 					}
 
 					?>

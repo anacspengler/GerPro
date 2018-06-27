@@ -27,65 +27,7 @@ session_start();
         <h5 class="header col s12 light">
 		<?php 
 		
-			if($_SESSION['algoritmo'] == 0)
-			 {	
-				echo "Algoritmo escolhido: First-Come First-Serve!";
-				// descrição sobre o algoritmo
-			 } 
-			 
-			 if($_SESSION['algoritmo'] == 1)
-			 {	
-				echo "Algoritmo escolhido: Shortest Job First!";
-				// descrição sobre o algoritmo			
-			 } 
-			
-			 if($_SESSION['algoritmo'] == 2)
-			 {	
-				echo "Algoritmo escolhido: Shortest Remaning Time Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-					
-			 if($_SESSION['algoritmo'] == 3)
-			 {	
-				echo "Algoritmo escolhido: Round-Robin!";
-				// descrição sobre o algoritmo			
-			 } 		
-			 
-			 if($_SESSION['algoritmo'] == 4)
-			 {	
-				echo "Algoritmo escolhido: Prioridade!";
-				// descrição sobre o algoritmo			
-			 } 				 
-
-			 if($_SESSION['algoritmo'] == 5)
-			 {	
-				echo "Algoritmo escolhido: Múltiplas Filas!";
-				// descrição sobre o algoritmo			
-			 } 		 
-			 
-			 if($_SESSION['algoritmo'] == 6)
-			 {	
-				echo "Algoritmo escolhido: Shortest Process Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 7)
-			 {	
-				echo "Algoritmo escolhido: Garantido!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 8)
-			 {	
-				echo "Algoritmo escolhido: Loteria!";
-				// descrição sobre o algoritmo			
-			 } 			 		 
-			 
-			 if($_SESSION['algoritmo'] == 9)
-			 {	
-				echo "Algoritmo escolhido: Fair-Share!";
-				// descrição sobre o algoritmo			
-			 } 	 		 
+		echo"Como você criou uma simulação de um sistema interativo, <br> você precisa definir algumas características da simulação:";
 			 
 		?>
 		</h5>
@@ -105,10 +47,10 @@ session_start();
 			
 		 echo"
 				<form action=\"define.php\" method=\"POST\">
-				
+				<br><br><br>
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tamanho do quantum:</font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Defina o tamanho do quantum: </h6></font></span>
 					  </label>
 					</p>
 				
@@ -121,7 +63,7 @@ session_start();
 
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tempo de operações de entrada e saída (E/S):</font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Defina o tempo de operações de entrada e saída (E/S): </h6></font></span>
 					  </label>
 					</p>
 				
@@ -134,7 +76,7 @@ session_start();
 					
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tempo de troca de contexto: </font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Defina o tempo de troca de contexto: </h6> </font></span>
 					  </label>
 					</p>
 				
@@ -147,7 +89,7 @@ session_start();
 
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina quanto tempo os processos vão ficar na CPU até solicitar E/S: </font></span>
+						<span> <font color= \"#29b6f6\"> <h6> Defina quanto tempo os processos vão ficar na CPU até solicitar E/S: </h6></font></span>
 					  </label>
 					</p>
 				

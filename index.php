@@ -47,7 +47,7 @@
         </div>
 <div class="row">
     <div class="col s12 m6">
-      <a href="simulacao.php" class="light-blue lighten-1 btn">Ir para Simulação</a>
+      <a href="simulacao.php" class="light-blue lighten-1 btn">Iniciar Simulação</a>
     </div>
     </div>    
 

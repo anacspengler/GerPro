@@ -23,15 +23,21 @@ session_start();
   <?php include "cabecalho.php"?>
 
   <?php
+  
   if(($_SESSION['algoritmo'] == 2) AND ($_SESSION['processoCPU'] != null ))
   {	
+
     echo"
+	 <div class=\"section no-pad-bot\" id=\"index-banner\ style='text-align:Justify'\">
+        <br><br>
+        <div class=\"row\">
     <div class=\"col s12 m6 l3\">
     <a href=\"ExecEnovoProcesso.php\">
-    <button class=\"btn light-blue lighten-1\" type=\"submit\" name=\"action\">Criar um novo processo</button>
+    <button class=\"btn light-orange lighten-1\" type=\"submit\" name=\"action\">Criar um novo processo</button>
 
     </a>
     </div>
+	<br>
     ";
   }		
   ?>

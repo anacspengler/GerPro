@@ -26,67 +26,17 @@ session_start();
       <div class="row center">
         <h5 class="header col s12 light">
 		<?php 
-		
-			if($_SESSION['algoritmo'] == 0)
-			 {	
-				echo "Algoritmo escolhido: First-Come First-Serve!";
-				// descrição sobre o algoritmo
-			 } 
-			 
-			 if($_SESSION['algoritmo'] == 1)
-			 {	
-				echo "Algoritmo escolhido: Shortest Job First!";
-				// descrição sobre o algoritmo			
-			 } 
-			
-			 if($_SESSION['algoritmo'] == 2)
-			 {	
-				echo "Algoritmo escolhido: Shortest Remaning Time Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-					
-			 if($_SESSION['algoritmo'] == 3)
-			 {	
-				echo "Algoritmo escolhido: Round-Robin!";
-				// descrição sobre o algoritmo			
-			 } 		
-			 
-			 if($_SESSION['algoritmo'] == 4)
-			 {	
-				echo "Algoritmo escolhido: Prioridade!";
-				// descrição sobre o algoritmo			
-			 } 				 
-
-			 if($_SESSION['algoritmo'] == 5)
-			 {	
-				echo "Algoritmo escolhido: Múltiplas Filas!";
-				// descrição sobre o algoritmo			
-			 } 		 
-			 
-			 if($_SESSION['algoritmo'] == 6)
-			 {	
-				echo "Algoritmo escolhido: Shortest Process Next!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 7)
-			 {	
-				echo "Algoritmo escolhido: Garantido!";
-				// descrição sobre o algoritmo			
-			 } 		
-
-			 if($_SESSION['algoritmo'] == 8)
-			 {	
-				echo "Algoritmo escolhido: Loteria!";
-				// descrição sobre o algoritmo			
-			 } 			 		 
-			 
-			 if($_SESSION['algoritmo'] == 9)
-			 {	
-				echo "Algoritmo escolhido: Fair-Share!";
-				// descrição sobre o algoritmo			
-			 } 	 		 
-			 
+				 if($_SESSION['pid'] ==0)
+					 {			 
+						 echo "Crie o seu primeiro processo:";
+						 echo "<br>";
+					 }
+					 
+				 if($_SESSION['pid'] > 0)
+					 {			 
+						 echo "Crie um novo processo: </font>";
+						 echo "<br>";
+					 }
 		?>
 		</h5>
 	<br><br>
@@ -94,24 +44,14 @@ session_start();
 	
 	<?php
 	 
-	 if($_SESSION['pid'] ==0)
-		 {			 
-			 echo "<font color= \"#0000FF\"> IMPORTANTE: Você não tem nenhum processo criado. É necessário criar um novo processo. </font>";
-			 echo "<br> <br> <br>";
-		 }
-		 
-	 if($_SESSION['pid'] > 0)
-		 {			 
-			 echo "<font color= \"#0000FF\"> IMPORTANTE: Você já tem um processo criado e está criando um novo processo. </font>";
-			 echo "<br> <br> <br>";
-		 }
 
 		 echo"
 				<form action=\"escalonamento_1.php\" method=\"POST\">
 				
+				
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Escolha o tipo do processo:</font></span>
+						<span> <h6> <font color= \"#29b6f6\"> Primeiro, escolha o tipo do processo:</font> </h6></span>
 					  </label>
 					</p>
 				
@@ -131,7 +71,7 @@ session_start();
 
 					<p>
 					  <label>
-						<span> <font color= \"#0000FF\"> Defina o tempo que o processo vai gastar na CPU:</font></span>
+						<span> <h6> <font color= \"#29b6f6\"> Depois, defina o tempo que o processo vai gastar na CPU:</font> </h6></span>
 					  </label>
 					</p>
 
@@ -147,12 +87,12 @@ session_start();
 						echo "	
 						<p>
 							<label>
-								<span> <font color= \"red\"> Atribua uma prioridade para o processo que está criando:</font></span>
+								<span> <h6> <font color= \"#29b6f6\"> Para o algortimo que está simulando, é necessário atribuir uma prioridade para o processo que está criando:</font> </h6></span>
 							</label>
 						</p>
 						<p>
 							<label>
-								<span> <font color= \"red\"> Lembrete: Prioridades são atribupídas por decrescente (0 é a mais alta) </font></span>
+								<span> <font color= \"red\"> Lembrete: Prioridades são atribupídas por ordem decrescente (0 é a mais alta) </font></span>
 							</label>
 						</p>						
 						<p>

@@ -40,7 +40,7 @@ $_SESSION['processosProntos'] = array();
 			<br><br>
 			<h1 class="header center orange-text">Simulação</h1>
 			<div class="row center">
-				<h5 class="header col s12 light">Escolha o tipo de Sistema Computacional:</h5>
+				<h5 class="header col s12 light">Selecione o tipo de Sistema Computacional:</h5>
 				<br><br>
 
 				<!-- criei um form para pegar o tipo de sistema computacional que o usuário escolheu -->
